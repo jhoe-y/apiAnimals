@@ -1,4 +1,4 @@
-import { Router } from 'node:express'
+import { Router } from 'express'
 import { getAllAnimals, createAnimal } from '../controllers/animalControllers.js'
 
 const router = Router()

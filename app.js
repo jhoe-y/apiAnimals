@@ -1,4 +1,4 @@
-import express from 'node:express'
+import express from 'express'
 import animalRoutes from './routes/animalRoutes.js'
 
 const app = express()

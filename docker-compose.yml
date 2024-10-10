@@ -1,11 +1,6 @@
-version: '3.8'
-
 services:
   app:
-    image: node:alpine
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
       - '${APP_PORT}:${APP_PORT}'
     environment:
@@ -14,11 +9,10 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_HOST: ${DB_HOST}
       DB_PORT: ${DB_PORT}
-      APP_PORT: ${APP_PORT} 
+      APP_PORT: ${APP_PORT}
     depends_on:
       - db
-    
-  
+
   proxy:
     image: nginx:1.24.0
     ports:
@@ -27,7 +21,6 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - app
-    
 
   db:
     image: postgres:alpine
@@ -40,4 +33,3 @@ services:
       - '${DB_PORT}:${DB_PORT}'
     volumes:
       - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
-
