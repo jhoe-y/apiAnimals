@@ -2,6 +2,7 @@ import * as AnimalService from '../services/animalServices.js'
 
 export const getAllAnimals = async (req, res) => {
     try {
+        console.log('Hola')
         const animals = await AnimalService.getAll()
         res.status(200).json(animals)
     } catch (error) {

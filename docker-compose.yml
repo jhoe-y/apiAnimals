@@ -13,6 +13,20 @@ services:
     depends_on:
       - db
 
+  app2:
+    build: .
+    ports:
+      - '3001:${APP_PORT}'
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      APP_PORT: ${APP_PORT}
+    depends_on:
+      - db
+
   proxy:
     image: nginx:1.24.0
     ports:
