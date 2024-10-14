@@ -6,8 +6,8 @@ const app = express()
 app.use(express.json())
 app.use('/api', animalRoutes)
 
-const PORT = process.env.PORT || 3000
+const NODE_PORT = process.env.APP_PORT
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+app.listen(NODE_PORT, () => {
+    console.log(`Server is running on NODE_PORT ${NODE_PORT}`)
 })
